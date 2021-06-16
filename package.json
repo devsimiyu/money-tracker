@@ -1,0 +1,57 @@
+{
+  "name": "money-tracker-app",
+  "version": "0.0.1",
+  "description": "Customer wallet api",
+  "keywords": [
+    "loopback-application",
+    "loopback"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=10.16"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "clean": "rimraf dist *.tsbuildinfo .eslintcache",
+    "pretest": "npm run rebuild",
+    "migrate": "node ./dist/migrate",
+    "openapi-spec": "node ./dist/openapi-spec",
+    "prestart": "npm run rebuild",
+    "start": "node -r source-map-support/register .",
+    "prepare": "npm run build",
+    "rebuild": "npm run clean && npm run build",
+    "docker:build": "docker build -t loopback-getting-started-app .",
+    "docker:run": "docker run -p 3001:3000 -d --env-file .env --restart always loopback-getting-started-app"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "devsimiyu <dev.wrodgerss@gmail.com>",
+  "license": "",
+  "files": [
+    "README.md",
+    "dist",
+    "src",
+    "!*/__tests__"
+  ],
+  "dependencies": {
+    "@loopback/boot": "^3.4.0",
+    "@loopback/core": "^2.16.0",
+    "@loopback/repository": "^3.6.0",
+    "@loopback/rest": "^9.3.0",
+    "@loopback/rest-explorer": "^3.3.0",
+    "@loopback/service-proxy": "^3.2.0",
+    "dotenv": "^10.0.0",
+    "loopback-connector-postgresql": "^5.4.0",
+    "tslib": "^2.0.0"
+  },
+  "devDependencies": {
+    "@loopback/testlab": "^3.4.0",
+    "@types/node": "^10.17.59",
+    "rimraf": "^3.0.2",
+    "source-map-support": "^0.5.19",
+    "typescript": "~4.2.4"
+  }
+}
